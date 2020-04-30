@@ -4,6 +4,13 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Exercise files\**" />
+    <Content Remove="Exercise files\**" />
+    <EmbeddedResource Remove="Exercise files\**" />
+    <None Remove="Exercise files\**" />
+  </ItemGroup>
+
 
 
 </Project>
