@@ -11,6 +11,10 @@
     <None Remove="Exercise files\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
 
 
 </Project>
