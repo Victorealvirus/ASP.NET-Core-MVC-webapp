@@ -24,7 +24,9 @@ namespace BethanysPieShop
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddTransient<IPieRepository, PieRepository>();
+            services.AddTransient<IFeedbackRepository, FeedbackRepository>();
             services.AddControllersWithViews();
+            services.AddMvc(options=>options.EnableEndpointRouting=false);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,15 +48,13 @@ namespace BethanysPieShop
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            app.UseRouting();
-
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
+            app.UseMvc(routes =>
             {
-                endpoints.MapControllerRoute(
+                routes.MapRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
