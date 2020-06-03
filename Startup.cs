@@ -44,12 +44,10 @@ namespace BethanysPieShop
             }
 
             app.UseStatusCodePages();
-
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseAuthorization();
-
+            app.UseAuthentication();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
